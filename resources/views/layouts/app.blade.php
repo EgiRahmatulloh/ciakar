@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Desa Ciakar')</title>
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
+
     <!-- Custom CSS -->
     <style>
         :root {
@@ -28,10 +29,10 @@
             --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             --gradient-warning: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
-            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
-            --shadow-xl: 0 12px 40px rgba(0,0,0,0.15);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.15);
             --border-radius: 16px;
             --border-radius-sm: 8px;
             --border-radius-lg: 24px;
@@ -81,7 +82,7 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 1rem 0;
             position: fixed;
@@ -96,7 +97,7 @@
 
         .navbar.scrolled {
             background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
 
         /* Section positioning */
@@ -237,7 +238,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: left 0.5s;
         }
 
@@ -369,9 +370,11 @@
             0% {
                 box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
             }
+
             50% {
                 box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6), 0 0 0 10px rgba(102, 126, 234, 0.1);
             }
+
             100% {
                 box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
             }
@@ -387,6 +390,7 @@
                 opacity: 0;
                 transform: translateY(40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -402,6 +406,7 @@
                 opacity: 0;
                 transform: translateX(-40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -417,6 +422,7 @@
                 opacity: 0;
                 transform: translateX(40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -445,7 +451,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transform: rotate(45deg);
             animation: shimmer 3s infinite;
         }
@@ -454,6 +460,7 @@
             0% {
                 transform: translateX(-100%) translateY(-100%) rotate(45deg);
             }
+
             100% {
                 transform: translateX(100%) translateY(100%) rotate(45deg);
             }
@@ -504,7 +511,8 @@
         }
 
         /* Fix for any floating or absolute positioned elements */
-        .container, .container-fluid {
+        .container,
+        .container-fluid {
             position: relative;
             z-index: 1;
         }
@@ -569,28 +577,28 @@
             position: relative;
             z-index: 1;
         }
-        
+
         .page-header h1 {
             margin-bottom: 20px;
             font-weight: 700;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
-        
+
         .page-header .breadcrumb {
             background: transparent;
             padding: 0;
             margin: 0;
         }
-        
+
         .page-header .breadcrumb-item a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
         }
-        
+
         .page-header .breadcrumb-item a:hover {
             color: white;
         }
-        
+
         .page-header .breadcrumb-item.active {
             color: white;
         }
@@ -600,76 +608,76 @@
             .section-title {
                 font-size: 2.2rem;
             }
-            
+
             .section-subtitle {
                 font-size: 1.1rem;
             }
-            
+
             .section-padding {
                 padding: 60px 0;
             }
-            
+
             .floating-btn {
                 width: 55px;
                 height: 55px;
                 bottom: 20px;
                 right: 20px;
             }
-            
+
             .hero-title {
                 font-size: 2.5rem;
             }
-            
+
             .hero-subtitle {
                 font-size: 1.1rem;
             }
-            
+
             .card {
                 margin-bottom: 1.5rem;
             }
-            
+
             .navbar-brand {
                 font-size: 1.3rem;
             }
-            
+
             /* Mobile navbar adjustments */
             .navbar {
                 padding: 0.5rem 0;
                 min-height: 70px;
             }
-            
+
             main {
                 padding-top: 90px !important;
             }
-            
+
             .hero-section {
                 padding-top: 110px !important;
             }
-            
+
             .page-header {
                 padding-top: 120px;
                 padding-bottom: 40px;
             }
-            
+
             html {
                 scroll-padding-top: 90px;
             }
         }
-        
+
         @media (max-width: 576px) {
             main {
                 padding-top: 80px !important;
             }
-            
+
             .hero-section {
                 padding-top: 100px !important;
             }
-            
+
             .page-header {
                 padding-top: 110px;
                 padding-bottom: 30px;
             }
-            
+
             html {
                 scroll-padding-top: 80px;
             }
@@ -688,7 +696,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             animation: loading 1.5s infinite;
         }
 
@@ -696,6 +704,7 @@
             0% {
                 left: -100%;
             }
+
             100% {
                 left: 100%;
             }
@@ -729,7 +738,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             animation: shimmerCarousel 3s infinite;
         }
 
@@ -737,6 +746,7 @@
             0% {
                 left: -100%;
             }
+
             100% {
                 left: 100%;
             }
@@ -803,23 +813,23 @@
             .carousel-image-placeholder {
                 height: 300px !important;
             }
-            
+
             .carousel-control-prev,
             .carousel-control-next {
                 width: 45px;
                 height: 45px;
             }
-            
+
             .carousel-control-prev {
                 left: 10px;
             }
-            
+
             .carousel-control-next {
                 right: 10px;
             }
         }
     </style>
-    
+
     @stack('styles')
 </head>
 
@@ -830,11 +840,11 @@
             <a class="navbar-brand" href="{{ url('/') }}">
                 <i class="fas fa-leaf me-2"></i>Desa Ciakar
             </a>
-            
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -883,7 +893,7 @@
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <h5><i class="fas fa-leaf me-2"></i>Desa Ciakar</h5>
-                    <p class="mb-3">Desa yang kaya akan budaya, tradisi, dan potensi alam yang menawan di Kabupaten Pandeglang, Banten.</p>
+                    <p class="mb-3">Desa yang kaya akan budaya, tradisi, dan potensi alam yang menawan di Kabupaten Ciamis, Jawa Barat.</p>
                     <div class="social-links">
                         <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
@@ -947,12 +957,12 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Custom JS -->
     <script>
         // Enhanced smooth scrolling with easing
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -967,24 +977,24 @@
         // Navbar scroll effect
         let lastScrollTop = 0;
         const navbar = document.querySelector('.navbar');
-        
+
         window.addEventListener('scroll', function() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
+
             // Add scrolled class for styling
             if (scrollTop > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
-            
+
             // Hide/show navbar on scroll
             if (scrollTop > lastScrollTop && scrollTop > 100) {
                 navbar.style.transform = 'translateY(-100%)';
             } else {
                 navbar.style.transform = 'translateY(0)';
             }
-            
+
             lastScrollTop = scrollTop;
         });
 
@@ -1036,7 +1046,7 @@
         window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
             const parallaxElements = document.querySelectorAll('.hero-section');
-            
+
             parallaxElements.forEach(element => {
                 const speed = 0.5;
                 element.style.transform = `translateY(${scrolled * speed}px)`;
@@ -1062,7 +1072,7 @@
             floatingBtn.addEventListener('mouseenter', function() {
                 this.style.animation = 'none';
             });
-            
+
             floatingBtn.addEventListener('mouseleave', function() {
                 this.style.animation = 'pulse 2s infinite';
             });
@@ -1074,7 +1084,7 @@
             link.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-2px) scale(1.05)';
             });
-            
+
             link.addEventListener('mouseleave', function() {
                 if (!this.classList.contains('active')) {
                     this.style.transform = 'translateY(0) scale(1)';
@@ -1086,7 +1096,7 @@
         function typewriterEffect(element, text, speed = 100) {
             let i = 0;
             element.innerHTML = '';
-            
+
             function typeWriter() {
                 if (i < text.length) {
                     element.innerHTML += text.charAt(i);
@@ -1094,7 +1104,7 @@
                     setTimeout(typeWriter, speed);
                 }
             }
-            
+
             typeWriter();
         }
 
@@ -1180,7 +1190,7 @@
         `;
         document.head.appendChild(rippleStyle);
     </script>
-    
+
     @stack('scripts')
 </body>
 

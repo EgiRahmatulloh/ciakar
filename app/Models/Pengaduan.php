@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pengaduan extends Model
 {
     protected $table = 'pengaduan';
-    
+
     protected $fillable = [
         'nama',
         'nik',
@@ -24,18 +24,19 @@ class Pengaduan extends Model
         'status',
         'tanggapan'
     ];
-    
+
     // Status constants
     const STATUS_PENDING = 'pending';
     const STATUS_DIPROSES = 'diproses';
     const STATUS_SELESAI = 'selesai';
     const STATUS_DITOLAK = 'ditolak';
-    
+
     // Priority constants
     const PRIORITAS_RENDAH = 'rendah';
     const PRIORITAS_SEDANG = 'sedang';
     const PRIORITAS_TINGGI = 'tinggi';
-    
+    const PRIORITAS_DARURAT = 'darurat';
+
     /**
      * Get all available statuses
      */
@@ -48,7 +49,7 @@ class Pengaduan extends Model
             self::STATUS_DITOLAK => 'Ditolak'
         ];
     }
-    
+
     /**
      * Get all available priorities
      */
@@ -57,10 +58,11 @@ class Pengaduan extends Model
         return [
             self::PRIORITAS_RENDAH => 'Rendah',
             self::PRIORITAS_SEDANG => 'Sedang',
-            self::PRIORITAS_TINGGI => 'Tinggi'
+            self::PRIORITAS_TINGGI => 'Tinggi',
+            self::PRIORITAS_DARURAT => 'Darurat'
         ];
     }
-    
+
     /**
      * Get display name (considering anonymous)
      */
@@ -68,7 +70,7 @@ class Pengaduan extends Model
     {
         return $this->anonim ? 'Anonim' : $this->nama;
     }
-    
+
     /**
      * Get formatted date
      */
@@ -76,36 +78,37 @@ class Pengaduan extends Model
     {
         return $this->created_at->format('d M Y H:i');
     }
-    
+
     /**
      * Get status badge class
      */
     public function getStatusBadgeAttribute()
     {
         $badges = [
-            self::STATUS_PENDING => 'badge-warning',
-            self::STATUS_DIPROSES => 'badge-info',
-            self::STATUS_SELESAI => 'badge-success',
-            self::STATUS_DITOLAK => 'badge-danger'
+            self::STATUS_PENDING => 'badge-pending',
+            self::STATUS_DIPROSES => 'badge-diproses',
+            self::STATUS_SELESAI => 'badge-selesai',
+            self::STATUS_DITOLAK => 'badge-ditolak'
         ];
-        
+
         return $badges[$this->status] ?? 'badge-secondary';
     }
-    
+
     /**
      * Get priority badge class
      */
     public function getPriorityBadgeAttribute()
     {
         $badges = [
-            self::PRIORITAS_RENDAH => 'badge-success',
-            self::PRIORITAS_SEDANG => 'badge-warning',
-            self::PRIORITAS_TINGGI => 'badge-danger'
+            self::PRIORITAS_RENDAH => 'badge-rendah',
+            self::PRIORITAS_SEDANG => 'badge-sedang',
+            self::PRIORITAS_TINGGI => 'badge-tinggi',
+            self::PRIORITAS_DARURAT => 'badge-darurat'
         ];
-        
+
         return $badges[$this->prioritas] ?? 'badge-secondary';
     }
-    
+
     protected $casts = [
         'bukti_files' => 'array',
         'anonim' => 'boolean',

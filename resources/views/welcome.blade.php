@@ -11,7 +11,7 @@
             <div class="col-lg-8">
                 <div class="hero-content p-5 rounded-4" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);">
                     <h1 class="display-4 fw-bold mb-4 hero-title fade-in-up" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.5); color: #ffffff;">Selamat Datang di Desa Ciakar</h1>
-                    <p class="lead mb-4 fade-in-up" style="animation-delay: 0.2s; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); color: #f8f9fa; line-height: 1.6;">Desa yang asri dan sejahtera di jantung Kabupaten Subang, Jawa Barat. Bergabunglah dengan kami dalam membangun masa depan yang lebih baik.</p>
+                    <p class="lead mb-4 fade-in-up" style="animation-delay: 0.2s; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); color: #f8f9fa; line-height: 1.6;">Desa yang asri dan sejahtera di jantung Kabupaten Ciamis, Jawa Barat. Bergabunglah dengan kami dalam membangun masa depan yang lebih baik.</p>
                     <div class="d-flex gap-3 fade-in-up" style="animation-delay: 0.4s">
                         <a href="{{ url('/tentang') }}" class="btn btn-light btn-lg px-4 py-3" style="font-weight: 600; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">Tentang Kami</a>
                         <a href="{{ url('/kontak') }}" class="btn btn-outline-light btn-lg px-4 py-3" style="font-weight: 600; border-radius: 12px; border-width: 2px; backdrop-filter: blur(10px); background: rgba(255,255,255,0.1);">Hubungi Kami</a>
@@ -207,7 +207,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Baris kedua: 2 card di tengah -->
         <div class="row g-4 justify-content-center">
             <div class="col-md-4">

@@ -30,27 +30,26 @@ class PengaduanController extends Controller
             'email' => 'nullable|email|max:255',
             'alamat' => 'required|string|max:500',
             'kategori' => 'required|string|max:255',
-            'prioritas' => 'required|string|in:rendah,sedang,tinggi',
+            'prioritas' => 'required|in:rendah,sedang,tinggi,darurat',
             'lokasi' => 'required|string|max:255',
             'judul' => 'required|string|max:255',
             'isi' => 'required|string|max:2000',
             'bukti_files.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf,doc,docx|max:5120', // 5MB max
+            'persetujuan' => 'required|accepted',
             'anonim' => 'boolean'
         ]);
 
         if ($validator->fails()) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Validasi gagal',
-                'errors' => $validator->errors()
-            ], 422);
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
         }
 
         try {
             $data = $request->all();
             $data['anonim'] = $request->has('anonim');
-            $data['status'] = 'pending';
-            
+            $data['status'] = 'baru';
+
             // Handle file uploads
             $buktiFiles = [];
             if ($request->hasFile('bukti_files')) {
@@ -70,20 +69,12 @@ class PengaduanController extends Controller
 
             $pengaduan = Pengaduan::create($data);
 
-            return response()->json([
-                'success' => true,
-                'message' => 'Pengaduan berhasil dikirim. Nomor tiket: ' . str_pad($pengaduan->id, 6, '0', STR_PAD_LEFT),
-                'data' => [
-                    'id' => $pengaduan->id,
-                    'nomor_tiket' => str_pad($pengaduan->id, 6, '0', STR_PAD_LEFT)
-                ]
-            ]);
-
+            return redirect()->back()
+                ->with('success', 'Pengaduan berhasil dikirim. Nomor tiket: ' . str_pad($pengaduan->id, 6, '0', STR_PAD_LEFT));
         } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Terjadi kesalahan saat menyimpan pengaduan: ' . $e->getMessage()
-            ], 500);
+            return redirect()->back()
+                ->with('error', 'Terjadi kesalahan saat menyimpan pengaduan: ' . $e->getMessage())
+                ->withInput();
         }
     }
 
@@ -99,8 +90,8 @@ class PengaduanController extends Controller
                 'diproses' => Pengaduan::where('status', 'diproses')->count(),
                 'selesai' => Pengaduan::where('status', 'selesai')->count(),
                 'bulan_ini' => Pengaduan::whereMonth('created_at', now()->month)
-                                      ->whereYear('created_at', now()->year)
-                                      ->count(),
+                    ->whereYear('created_at', now()->year)
+                    ->count(),
                 'minggu_ini' => Pengaduan::whereBetween('created_at', [
                     now()->startOfWeek(),
                     now()->endOfWeek()
@@ -126,19 +117,19 @@ class PengaduanController extends Controller
     {
         try {
             $pengaduan = Pengaduan::select('id', 'judul', 'kategori', 'status', 'created_at')
-                                 ->orderBy('created_at', 'desc')
-                                 ->limit(5)
-                                 ->get()
-                                 ->map(function ($item) {
-                                     return [
-                                         'id' => $item->id,
-                                         'nomor_tiket' => str_pad($item->id, 6, '0', STR_PAD_LEFT),
-                                         'judul' => Str::limit($item->judul, 50),
-                                         'kategori' => ucfirst($item->kategori),
-                                         'status' => ucfirst($item->status),
-                                         'tanggal' => $item->created_at->format('d M Y')
-                                     ];
-                                 });
+                ->orderBy('created_at', 'desc')
+                ->limit(5)
+                ->get()
+                ->map(function ($item) {
+                    return [
+                        'id' => $item->id,
+                        'nomor_tiket' => str_pad($item->id, 6, '0', STR_PAD_LEFT),
+                        'judul' => Str::limit($item->judul, 50),
+                        'kategori' => ucfirst($item->kategori),
+                        'status' => ucfirst($item->status),
+                        'tanggal' => $item->created_at->format('d M Y')
+                    ];
+                });
 
             return response()->json([
                 'success' => true,
