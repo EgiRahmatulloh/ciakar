@@ -116,7 +116,7 @@
                                             <td>8</td>
                                             <td>Bapak Kamil Hasan, S.Ag.</td>
                                             <td>Desawetan</td>
-                                            <td>2018 s/d Sekarang</td>
+                                            <td>2018 s/d Sekarang (Masa Bakti 7 Tahun)</td>
                                         </tr>
                                     </tbody>
                                 </table>

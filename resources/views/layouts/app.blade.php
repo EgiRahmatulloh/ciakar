@@ -951,7 +951,7 @@
                     <h5>Kontak Info</h5>
                     <div class="mb-2">
                         <i class="fas fa-map-marker-alt me-2"></i>
-                        <small>Jl. Raya Ciakar No. 123<br>Kec. Cipaku, Kab. Ciamis<br>Jawa Barat</small>
+                        <small>Jl. Raya Ciakar No. 389<br>Kec. Cipaku, Kab. Ciamis<br>Jawa Barat</small>
                     </div>
                     <div class="mb-2">
                         <i class="fas fa-phone me-2"></i>
@@ -959,7 +959,7 @@
                     </div>
                     <div class="mb-2">
                         <i class="fas fa-envelope me-2"></i>
-                        <small>info@desaciakar.id</small>
+                        <small>desaciakar389@gmail.com</small>
                     </div>
                 </div>
             </div>

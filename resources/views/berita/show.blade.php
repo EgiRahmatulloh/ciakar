@@ -241,7 +241,7 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <i class="fas fa-map-marker-alt text-primary me-2"></i>
-                            <small>Jl. Raya Ciakar No. 123, Ciakar, Kec. Cipaku</small>
+                            <small>Jl. Raya Ciakar No. 389, Ciakar, Kec. Cipaku</small>
                         </div>
                         <div class="mb-3">
                             <i class="fas fa-phone text-primary me-2"></i>
@@ -249,7 +249,7 @@
                         </div>
                         <div class="mb-0">
                             <i class="fas fa-envelope text-primary me-2"></i>
-                            <small>info@desaciakar.id</small>
+                            <small>desaciakar389@gmail.com</small>
                         </div>
                     </div>
                 </div>
