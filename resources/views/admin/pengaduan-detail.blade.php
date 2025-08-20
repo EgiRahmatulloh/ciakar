@@ -358,17 +358,40 @@
                         </h5>
                     </div>
                     <div class="card-body">
-                        @if($pengaduan->bukti)
-                            <div class="attachment-item">
-                                <i class="fas fa-image text-primary me-3 fa-2x"></i>
-                                <div class="flex-grow-1">
-                                    <div class="fw-bold">{{ basename($pengaduan->bukti) }}</div>
-                                    <small class="text-muted">Bukti Pendukung • Gambar</small>
+                        @if($pengaduan->bukti_files)
+                            @php
+                                $buktiFiles = json_decode($pengaduan->bukti_files, true);
+                            @endphp
+                            @if(is_array($buktiFiles) && count($buktiFiles) > 0)
+                                <div class="row">
+                                    @foreach($buktiFiles as $index => $file)
+                                        <div class="col-md-6 mb-4">
+                                            <div class="card h-100">
+                                                <div class="card-header d-flex justify-content-between align-items-center py-2">
+                                                    <div class="text-truncate">
+                                                        <i class="fas fa-image text-primary me-2"></i>
+                                                        <span class="small fw-bold">{{ $file['original_name'] }}</span>
+                                                    </div>
+                                                    <a href="{{ isset($file['url']) ? url($file['url']) : url('storage/' . $file['path']) }}" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                        <i class="fas fa-external-link-alt"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="card-body p-0 text-center">
+                                                    <img src="{{ isset($file['url']) ? url($file['url']) : url('storage/' . $file['path']) }}" class="img-fluid rounded" alt="{{ $file['original_name'] }}" style="max-height: 200px; width: 100%; object-fit: contain;">
+                                                </div>
+                                                <div class="card-footer py-1 px-3">
+                                                    <small class="text-muted">{{ number_format($file['size'] / 1024, 2) }} KB</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
-                                <a href="{{ asset('storage/' . $pengaduan->bukti) }}" target="_blank" class="btn btn-outline-primary btn-sm">
-                                    <i class="fas fa-eye"></i>
-                                </a>
-                            </div>
+                            @else
+                                <div class="text-center py-4">
+                                    <i class="fas fa-image text-muted" style="font-size: 3rem;"></i>
+                                    <p class="text-muted mt-2">Format bukti tidak valid</p>
+                                </div>
+                            @endif
                         @else
                             <div class="text-center py-4">
                                 <i class="fas fa-image text-muted" style="font-size: 3rem;"></i>

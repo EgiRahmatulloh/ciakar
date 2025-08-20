@@ -45,7 +45,7 @@
                         </div>
                         <h5 class="card-title">Alamat Kantor</h5>
                         <p class="card-text">
-                            Jl. Raya Ciakar No. 123<br>
+                            Jl. Raya Ciakar No. 389<br>
                             Desa Ciakar, Kec. Cipaku<br>
                             Kabupaten Ciamis<br>
                             Jawa Barat
@@ -123,7 +123,7 @@
                                 <div class="text-center">
                                     <i class="fas fa-map-marked-alt fa-5x text-muted mb-3"></i>
                                     <h5 class="text-muted">Peta Lokasi</h5>
-                                    <p class="text-muted">Kantor Desa Ciakar<br>Jl. Raya Ciakar No. 123</p>
+                                    <p class="text-muted">Kantor Desa Ciakar<br>Jl. Raya Ciakar No. 389</p>
                                     <a href="https://maps.app.goo.gl/YjFGHwgU6gEALLFX8" target="_blank" class="btn btn-primary">
                                         <i class="fas fa-external-link-alt me-2"></i>Buka di Google Maps
                                     </a>

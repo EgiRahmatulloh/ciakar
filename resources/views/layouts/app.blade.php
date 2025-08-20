@@ -94,6 +94,31 @@
             height: auto;
             min-height: 80px;
         }
+        
+        /* Navbar Toggler (Hamburger Menu) */
+        .navbar-toggler {
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            padding: 0.5rem;
+            border-radius: 8px;
+            background-color: rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-toggler:hover {
+            background-color: rgba(102, 126, 234, 0.3);
+            transform: scale(1.05);
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+            outline: none;
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            width: 1.5em;
+            height: 1.5em;
+        }
 
         .navbar.scrolled {
             background: rgba(255, 255, 255, 0.98);
@@ -926,7 +951,7 @@
                     <h5>Kontak Info</h5>
                     <div class="mb-2">
                         <i class="fas fa-map-marker-alt me-2"></i>
-                        <small>Jl. Raya Ciakar No. 123<br>Kec. Cipaku, Kab. Ciamis<br>Jawa Barat</small>
+                        <small>Jl. Raya Ciakar No. 389<br>Kec. Cipaku, Kab. Ciamis<br>Jawa Barat</small>
                     </div>
                     <div class="mb-2">
                         <i class="fas fa-phone me-2"></i>
@@ -934,7 +959,7 @@
                     </div>
                     <div class="mb-2">
                         <i class="fas fa-envelope me-2"></i>
-                        <small>info@desaciakar.id</small>
+                        <small>desaciakar389@gmail.com</small>
                     </div>
                 </div>
             </div>
@@ -1191,6 +1216,9 @@
         document.head.appendChild(rippleStyle);
     </script>
 
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
     @stack('scripts')
 </body>
 

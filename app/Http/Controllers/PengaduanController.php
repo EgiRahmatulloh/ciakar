@@ -34,7 +34,8 @@ class PengaduanController extends Controller
             'lokasi' => 'required|string|max:255',
             'judul' => 'required|string|max:255',
             'isi' => 'required|string|max:2000',
-            'bukti_files.*' => 'nullable|file|mimes:jpg,jpeg,png,pdf,doc,docx|max:5120', // 5MB max
+            'bukti_files' => 'nullable|array',
+            'bukti_files.*' => 'nullable|file|mimes:jpg,jpeg,png,gif|max:5120', // 5MB max, hanya file gambar
             'persetujuan' => 'required|accepted',
             'anonim' => 'boolean'
         ]);
@@ -54,18 +55,21 @@ class PengaduanController extends Controller
             $buktiFiles = [];
             if ($request->hasFile('bukti_files')) {
                 foreach ($request->file('bukti_files') as $file) {
-                    $filename = time() . '_' . Str::random(10) . '.' . $file->getClientOriginalExtension();
-                    $path = $file->storeAs('pengaduan/bukti', $filename, 'public');
-                    $buktiFiles[] = [
-                        'original_name' => $file->getClientOriginalName(),
-                        'filename' => $filename,
-                        'path' => $path,
-                        'size' => $file->getSize(),
-                        'mime_type' => $file->getMimeType()
-                    ];
+                    if ($file->isValid()) {
+                        $filename = time() . '_' . Str::random(10) . '.' . $file->getClientOriginalExtension();
+                        $path = $file->storeAs('pengaduan/bukti', $filename, 'public');
+                        $buktiFiles[] = [
+                            'original_name' => $file->getClientOriginalName(),
+                            'filename' => $filename,
+                            'path' => $path,
+                            'size' => $file->getSize(),
+                            'mime_type' => $file->getMimeType(),
+                            'url' => '/storage/' . $path
+                        ];
+                    }
                 }
             }
-            $data['bukti_files'] = $buktiFiles;
+            $data['bukti_files'] = !empty($buktiFiles) ? json_encode($buktiFiles) : null;
 
             $pengaduan = Pengaduan::create($data);
 

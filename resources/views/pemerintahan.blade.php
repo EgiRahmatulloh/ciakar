@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-12 text-center mb-5">
                     <h2 class="section-title">Kepala Desa</h2>
-                    <p class="section-subtitle">Pemimpin Desa Ciakar periode 2018-Sekarang</p>
+                    <p class="section-subtitle">Pemimpin Desa Ciakar periode 2018-Sekarang (Masa Bakti 7 Tahun)</p>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -57,7 +57,7 @@
                                         <div class="col-sm-6">
                                             <div class="d-flex align-items-center">
                                                 <i class="fas fa-calendar-alt text-primary me-2"></i>
-                                                <small>Periode: 2018-Sekarang</small>
+                                                <small>Periode: 2018-Sekarang (Masa Bakti 7 Tahun)</small>
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -126,7 +126,7 @@
                             <div class="profile-image-placeholder mx-auto mb-3">
                                 <i class="fas fa-user fa-3x text-warning"></i>
                             </div>
-                            <h5 class="card-title">Zaenudin Abdullah</h5>
+                            <h5 class="card-title">Zunaedi Abduloh</h5>
                             <p class="text-muted mb-3">Kaur Perencanaan</p>
                             <p class="card-text small">
                                 Menyusun rencana pembangunan desa dan
@@ -202,7 +202,7 @@
                             <div class="profile-image-placeholder mx-auto mb-3">
                                 <i class="fas fa-user fa-3x text-purple"></i>
                             </div>
-                            <h5 class="card-title">Alu Nuralim</h5>
+                            <h5 class="card-title">Alu Nuralim S.T</h5>
                             <p class="text-muted mb-3">Kepala Dusun Sindangasih</p>
                             <p class="card-text small">
                                 Memimpin dan mengkoordinasikan kegiatan
@@ -221,7 +221,7 @@
                             <div class="profile-image-placeholder mx-auto mb-3">
                                 <i class="fas fa-user fa-3x text-purple"></i>
                             </div>
-                            <h5 class="card-title">Arif Hidayat</h5>
+                            <h5 class="card-title">Arip Hidayat S.Hum</h5>
                             <p class="text-muted mb-3">Kepala Dusun Sindangjaya</p>
                             <p class="card-text small">
                                 Memimpin dan mengkoordinasikan kegiatan
