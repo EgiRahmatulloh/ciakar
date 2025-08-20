@@ -19,6 +19,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Pastikan URL asset yang benar digunakan
+        if (config('app.env') !== 'local') {
+            \URL::forceScheme('https');
+        }
+        
+        // Pastikan URL storage yang benar
+        \Illuminate\Support\Facades\URL::macro('storage', function ($path) {
+            return url('storage/' . $path);
+        });
     }
 }

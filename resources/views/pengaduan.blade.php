@@ -185,9 +185,9 @@
                                     <textarea class="form-control" id="isi" name="isi" rows="6" required placeholder="Jelaskan secara detail pengaduan Anda, termasuk kronologi kejadian, dampak yang ditimbulkan, dan solusi yang diharapkan">{{ old('isi') }}</textarea>
                                 </div>
                                 <div class="col-12">
-                                    <label for="bukti" class="form-label">Bukti Pendukung</label>
-                                    <input type="file" class="form-control" id="bukti" name="bukti_files[]" accept="image/*,.pdf,.doc,.docx" multiple>
-                                    <div class="form-text">Upload foto, dokumen, atau file pendukung lainnya (maksimal 5MB per file)</div>
+                                    <label for="bukti" class="form-label">Bukti Pendukung (Foto/Gambar)</label>
+                                    <input type="file" class="form-control" id="bukti" name="bukti_files[]" accept="image/jpeg,image/jpg,image/png,image/gif" multiple>
+                                    <div class="form-text"><i class="fas fa-info-circle me-1"></i>Upload foto/gambar sebagai bukti pendukung (JPG, JPEG, PNG, GIF - maksimal 5MB per file)</div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-check">
@@ -351,19 +351,44 @@
     document.getElementById('bukti').addEventListener('change', function() {
         const files = this.files;
         const maxSize = 5 * 1024 * 1024; // 5MB
-        const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+        const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
+        const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
 
         for (let file of files) {
+            // Validasi ukuran file
             if (file.size > maxSize) {
                 alert('Ukuran file ' + file.name + ' terlalu besar. Maksimal 5MB per file.');
                 this.value = '';
                 break;
             }
+            
+            // Validasi tipe file berdasarkan MIME type
             if (!allowedTypes.includes(file.type)) {
-                alert('Tipe file ' + file.name + ' tidak diizinkan. Hanya JPG, PNG, PDF, DOC, dan DOCX yang diperbolehkan.');
-                this.value = '';
-                break;
+                // Validasi tambahan berdasarkan ekstensi file
+                const fileExt = file.name.split('.').pop().toLowerCase();
+                if (!allowedExtensions.includes(fileExt)) {
+                    alert('Tipe file ' + file.name + ' tidak diizinkan. Hanya file gambar (JPG, JPEG, PNG, GIF) yang diperbolehkan.');
+                    this.value = '';
+                    break;
+                }
             }
+        }
+        
+        // Tampilkan nama file yang dipilih
+        if (files.length > 0) {
+            let fileNames = Array.from(files).map(f => f.name).join(', ');
+            if (fileNames.length > 50) {
+                fileNames = fileNames.substring(0, 47) + '...';
+            }
+            const fileInfo = document.createElement('div');
+            fileInfo.className = 'mt-2 small text-success';
+            fileInfo.innerHTML = '<i class="fas fa-check-circle me-1"></i>' + files.length + ' file dipilih: ' + fileNames;
+            
+            // Hapus info file sebelumnya jika ada
+            const prevInfo = this.parentNode.querySelector('.text-success');
+            if (prevInfo) prevInfo.remove();
+            
+            this.parentNode.appendChild(fileInfo);
         }
     });
 </script>
